@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>游戏调查问卷</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="org" id="org">调查委员会</span>
+    <select id="langSel" class="lang-sel" aria-label="Language">
+      <option value="zh">简体中文</option>
+      <option value="ja">日本語</option>
+      <option value="en">English</option>
+      <option value="zh-TW">繁體中文</option>
+    </select>
+  </div>
+</div>
+
+<main class="wrap">
+  <!-- 封面 -->
+  <section id="intro" class="card">
+    <div class="doc-label" id="docLabel">问卷编号 04-11-77</div>
+    <h1 class="title" id="title">游戏调查问卷</h1>
+    <p class="subtitle" id="subtitle">编辑人：斐可悉</p>
+    <p class="source-note" id="sourceNote"></p>
+    <div class="rule"></div>
+    <div class="warning" id="warning"></div>
+    <p class="lead" id="introLead"></p>
+    <p class="body" id="introBody"></p>
+    <div class="actions"><button type="button" id="startBtn" class="primary"></button></div>
+  </section>
+
+  <!-- 问卷 -->
+  <section id="quiz" class="card hidden">
+    <div class="q-block">
+      <p class="q-text" id="qText"></p>
+    </div>
+    <div id="options" class="options"></div>
+    <div class="actions">
+      <button type="button" id="nextBtn" class="primary hidden"></button>
+    </div>
+  </section>
+
+  <!-- 感谢页：问卷走完后的收尾 -->
+  <section id="thanks" class="card hidden">
+    <h2 class="thanks-title" id="thanksTitle"></h2>
+    <div class="credits">
+      <div class="credit">
+        <img class="credit-avatar" src="乌鸦.png" alt="斐可悉">
+        <div class="credit-name" id="credit1Name"></div>
+        <div class="credit-role" id="credit1Role"></div>
+      </div>
+      <div class="credit">
+        <img class="credit-avatar" src="影中人.png" alt="吻梦Wen">
+        <div class="credit-name" id="credit2Name"></div>
+        <div class="credit-role" id="credit2Role"></div>
+      </div>
+    </div>
+    <div class="chat" id="chat"></div>
+    <div class="like-wrap">
+      <button type="button" id="likeBtn" class="like-btn" aria-label="点赞">
+        <span class="like-heart">♥</span>
+        <span class="like-num" id="likeNum">0</span>
+      </button>
+    </div>
+    <div class="actions"><button type="button" id="thanksRestartBtn" class="primary"></button></div>
+  </section>
+
+  <!-- 回答记录：逐题回显选项 + 统计，无结局判定 -->
+  <section id="result" class="card hidden">
+    <div class="doc-label" id="resultLabel"></div>
+    <h2 class="result-title" id="resultHeading"></h2>
+    <div id="answerLog" class="answer-log"></div>
+    <p class="record-line" id="summaryLine"></p>
+    <div class="actions"><button type="button" id="restartBtn" class="primary"></button></div>
+  </section>
+
+  <footer class="foot" id="foot"></footer>
+</main>
+
+<!-- 过场：点「我已知晓」后全屏黑底白字，停留数秒自动进入问卷；点击可跳过 -->
+<div id="blackout" class="blackout hidden" role="button" tabindex="0" aria-label="开始">
+  <div class="blackout-inner">
+    <p id="blackoutMain" class="blackout-main"></p>
+    <p id="blackoutEn" class="blackout-en"></p>
+  </div>
+</div>
+
+<!-- 结尾叙事黑屏：黑底白字，点击继续 -->
+<div id="storyBlackout" class="blackout hidden" role="button" tabindex="0" aria-label="继续">
+  <div class="blackout-inner">
+    <p id="storyBlackoutText" class="blackout-main"></p>
+    <p id="storyBlackoutEn" class="blackout-en"></p>
+  </div>
+</div>
+
+<script src="js/story.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
